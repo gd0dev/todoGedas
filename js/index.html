@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Gedas</title>
+    <!--CSS do projeto-->
+    <link rel="stylesheet" href="css\style.css">
+
+    <!--Biblioteca de icones :)-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--JS-->
+    <script src="js\script.js" defer></script>
+    <!--esse defer faz com que o script seja carregado depois do html, evitando erros de elementos não encontrados ou algo do tipo :)-->
+
+</head>
+
+<body>
+    <div class="todo-container">
+        <!--container do menu do projeto com as funcionalidades e tal. A idéia é um fundo simples com as funcionalidades no meio-->
+        <header>
+            <h1> Todo Gedas </h1>
+        </header>
+
+        <form id="todo-form">
+            <p> Vai dar certo :)</p>
+            <div class="form-control">
+                <input type="text" id="todo-input" placeholder="O que você vai fazer hoje?">
+                <button type="submit">
+                    <i class="fas fa-plus-square"></i>
+                </button>
+            </div>
+
+
+            <form id="edit-form">
+                <!--container do form de edição, a ideia é que ao clicar para editar, o usuário seja levado para uma tela separada de edição da tarefa-->
+                <p>Edite sua tarefa :)</p>
+                <div class="form-control">
+                    <input type="text" id="todo-rename" placeholder="Insira o novo nome da tarefa">
+                    <button type="submit">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </div>
+                <button id="cancel-button">Cancelar</button>
+            </form>
+
+        <div id="toolbar">
+            <div id="search">
+                <h4>pesquisar</h4>
+                <input type="text" id="search-input" placeholder="Pesquise por uma tarefa">
+                <button id="erase-button">
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
+            </div>
+            <div id="filter">
+                <h4>Filtrar</h4>
+                <select id="filter-select">
+                    <option value="all">Todas</option>
+                    <option value="completed">Completas</option>
+                    <option value="uncompleted">Incompletas</option>
+                </select>
+                <button id="clear-filter">
+                    <i class="fa-solid fa-trash"></i>
+                    </button>
+        </div>
+
+        
+
+    </div>
+
+        <!--testezinho rapido pra ver se funcionava kkkk (LEMBRAR DE BOTAR NA script.js)-->
+    <script>  
+        var select = document.getElementById("filter-select");
+        var botao = document.getElementById("clear-filter");
+        
+        botao.addEventListener("click", function() {
+          // Desmarcar todas as opções selecionadas
+          var opcoes = select.options;
+          for (var i = 0; i < opcoes.length; i++) {
+            opcoes[i].selected = false;
+            opcoes[0].selected = true;
+          }
+        });
+      </script>
+
+</body>
+
+</html>
